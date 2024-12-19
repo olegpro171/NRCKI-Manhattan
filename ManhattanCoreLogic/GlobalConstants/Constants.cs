@@ -11,6 +11,4 @@ public static class Constants
         {1, new[] {'5', '6', '4'}},
         {2, new[] {'8', '9', '7'}},
     };
-
-    
 }

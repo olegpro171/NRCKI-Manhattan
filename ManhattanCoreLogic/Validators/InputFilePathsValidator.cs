@@ -24,7 +24,7 @@ public class InputFilePathsValidator
         foreach (var BIPRFile in inputData.BIPRCalculatons)
         {
             ValidateFilePath(BIPRFile.FullFileName, $"В записи параметров БИПР №{c} неверно указан путь к файлу расчета маневра по БИПРу");
-            ValidateFilePath(BIPRFile.AlbumOutputDirectory, $"В записи параметров БИПР №{c} неверно указан путь директории вывода для Альбома");
+            ValidateFilePath(Path.GetDirectoryName(BIPRFile.AlbumOutputDirectory), $"В записи параметров БИПР №{c} неверно указан путь директории вывода для Альбома");
         }
     }
 
