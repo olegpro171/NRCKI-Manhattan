@@ -94,7 +94,7 @@ internal class MainWorker
             string albumTaskOutputFilePath = Path.Join(Path.GetDirectoryName(BIPRCalcParam.FullFileName), "mad.dat");
 
             LoggerSB.AppendLine($"Путь, указанный для записи файла задачи Альбома: {albumTaskOutputFilePath}\nЗапись файла...");
-            WrittenFiles.Add(albumTaskOutputFilePath);
+            //WrittenFiles.Add(albumTaskOutputFilePath);
             File.WriteAllText(albumTaskOutputFilePath, AlbumTaskString);
 
             LoggerSB.AppendLine($"Файл задачи Альбома записан по пути:\n{albumTaskOutputFilePath}\n");

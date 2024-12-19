@@ -17,14 +17,14 @@ namespace ManhattanCoreLogic.ExportDataStructures
             string FormatPath(string path) =>
                 string.IsNullOrWhiteSpace(path) 
                     ? "(empty)" 
-                    : path.Length > 40 
+                    : path.Length > 60 
                         ? $"{path[..15]}...{path[^15..]}" 
                         : path;
 
             string FormatArray(string[] array) =>
                 array == null || array.Length == 0 
                     ? "None" 
-                    : string.Join(", ", array.Select(FormatPath));
+                    : $"{Environment.NewLine}  " + string.Join($",{Environment.NewLine}  ", array.Select(FormatPath));
 
             var cyclePoints = CyclePoints;
             string FormatCyclePoints() =>  
