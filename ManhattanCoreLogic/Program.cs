@@ -75,7 +75,9 @@ public class Program
         return TestInputData;
     }
 
-    public static void Main(string[] args)
+
+
+    public static void ReadFromFileAndStart()
     {
         InputData ManhattanTask;
         try
@@ -84,7 +86,7 @@ public class Program
         }
         catch
         {
-            Console.WriteLine($"Не нвйден файл задачи {DefaultTaskFileName}");
+            Console.WriteLine($"Не найден файл задачи:\n{DefaultTaskFileName}");
             return;
         }
 
@@ -93,9 +95,35 @@ public class Program
         var errorList = TestCore.ExecuteLogic(ManhattanTask);
 
         foreach (var item in errorList)
-            Console.WriteLine(item.Message);    
+            Console.WriteLine(item.Message);
 
         Console.WriteLine(TestCore.Logs);
+    }
+
+
+
+    public static void Main(string[] args)
+    {
+        try
+        {
+            ReadFromFileAndStart();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Произошла непредвиденная ошибка:");
+            Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Работа завершена.\nНажмите любую кнопку для выхода");
+            try
+            {
+                Console.ReadKey();
+            }
+            catch { }
+        }
     }
 }
 

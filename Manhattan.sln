@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManhattanCoreLogic", "ManhattanCoreLogic\ManhattanCoreLogic.csproj", "{77B527DA-6BB1-4C92-BF6F-AF34A3986C0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manhattan", "Manhattan\Manhattan.csproj", "{8CAF901D-9BDC-45C9-A79D-1BD14BAD097D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{77B527DA-6BB1-4C92-BF6F-AF34A3986C0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77B527DA-6BB1-4C92-BF6F-AF34A3986C0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77B527DA-6BB1-4C92-BF6F-AF34A3986C0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CAF901D-9BDC-45C9-A79D-1BD14BAD097D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CAF901D-9BDC-45C9-A79D-1BD14BAD097D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CAF901D-9BDC-45C9-A79D-1BD14BAD097D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CAF901D-9BDC-45C9-A79D-1BD14BAD097D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
