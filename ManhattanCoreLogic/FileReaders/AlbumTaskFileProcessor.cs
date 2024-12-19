@@ -3,6 +3,7 @@ using System.Data.Common;
 using System.Text;
 using System.Text.RegularExpressions;
 using ManhattanCoreLogic.ExportDataStructures;
+using ManhattanCoreLogic.Validators;
 
 namespace ManhattanCoreLogic.FileReaders;
 
@@ -47,7 +48,7 @@ internal class AlbumTaskFileProcessor : BaseFileReader
     {
         return new()
         {
-            { "UnitDirectory", Path.GetDirectoryName(Params.CycleDirectory) },
+            { "UnitDirectory", Path.GetDirectoryName(Params.CycleDirectory) ?? null },
             { "CycleDirectory", Params.CycleDirectory },
             { "AlbumOutputDirectory", BIPRParams.AlbumOutputDirectory },
             { "Kamp", Path.GetFileName(Params.CycleDirectory) },
@@ -64,7 +65,16 @@ internal class AlbumTaskFileProcessor : BaseFileReader
         var BIPRFile = Path.GetFileName(BIPRParams.FullFileName);
         int FinalSost = BIPRParams.FinalSost;
         
-        
+        if (FinalSost < 1)
+        {
+            throw new ArgumentException($"Неверные данные в записи БИПР для файла {Path.GetFileName(BIPRParams.FullFileName)}.\nПараметр \"FinalSost\" = {BIPRParams.FinalSost} (Требуется значение > 1)");
+        }
+
+        if (FinalSost == 1)
+        {
+            return $"& {BIPRFile}.S01,";
+        }
+
         if (FinalSost <= 9)
         {
             return $"& {BIPRFile}.S01 - {BIPRFile}.S0{FinalSost},";

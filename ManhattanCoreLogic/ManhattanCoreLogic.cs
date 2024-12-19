@@ -6,6 +6,12 @@ namespace ManhattanCoreLogic
 {
     public class ManhattanCoreLogic
     {
+        private List<IValidator> Validators =
+        [
+            new InputFilePathsValidator(),
+            new BIPRValidator(),
+        ];
+
         private List<ErrorReport> ErrorReports = new();
         private MainWorker Worker = new();
 
@@ -38,13 +44,13 @@ namespace ManhattanCoreLogic
         public ErrorReport[] ExecuteLogic(InputData Params)
         {
             ErrorReports.Clear();
-
-            ValidateInputData(Params);
+            
+            foreach (var validator in Validators)
+                validator.Validate(Params, ErrorReports);
 
             if (ErrorReports.Count > 0)
                 return ErrorReports.ToArray();
 
-            
             try
             {
                 Worker.Execute(Params);
@@ -60,9 +66,6 @@ namespace ManhattanCoreLogic
 
         private void ValidateInputData(InputData inputData)
         {
-            List<ErrorReport> errorReports = new();
-            InputFilePathsValidator.Validate(inputData, ReportList: ErrorReports);
-
             if (inputData.CyclePoints.Length != 3)
                 ErrorReports.Add(new("Указано неверное колличество точек моментов кампании."));
 

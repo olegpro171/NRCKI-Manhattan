@@ -20,7 +20,7 @@ namespace ManhattanCoreLogic
                         : path;
 
             return 
-            @$"  Full File Name: {FormatPath(FullFileName)}
+@$"  Full File Name: {FormatPath(FullFileName)}
   Album Output Directory: {FormatPath(AlbumOutputDirectory)}
   Moment of Cycle: {MomentOfCycle}
   Power Restore Num Sost: {PowerRestoreNumSost}
